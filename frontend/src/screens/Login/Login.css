@@ -1,0 +1,15 @@
+
+.loginContainer{
+    display:flex;
+    flex-direction:column;
+    margin:20px;
+}
+.title{
+    font-size: 60px;
+    color: black;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    padding:0;
+}
+.link{
+    color: red;
+}
