@@ -1,24 +1,24 @@
-import React, { useState,} from 'react';
-import afterLogin from '../afterLogin/afterLogin';
+import React, { useState,connect} from 'react';
 //import 'react-phone-number-input/style.css'
 import "./Login.css";
 import Loading from "../../components/Loading";
 import { Form,
 Button,
 Row,Col} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import {Link,  useNavigate} from 'react-router-dom';
 import axios from "axios";
 import ErrorMessage from '../../components/ErrorMessage';
+import fs from "../FirstScreen/FirstScreen";
 
 const Login = ({history}) => {
+    const navigate =useNavigate();
     const [email,setEmail]=useState("")
     const [password, setPassword]=useState("")
     const [error, setError]=useState(false)
-    const [loading, setLoading]=useState(false) 
+    const [loading, setLoading]=useState(false)
 
     const submitHandler=async(e)=>{
         e.preventDefault();
-        // console.log(email,password);
         try{
             const config={
                 headers:{
@@ -33,11 +33,10 @@ const Login = ({history}) => {
                     password,
                 },
                 config,
-            ); 
-            <aterLogin/>
-            console.log(email,password);
-            localStorage.setItem('userInfo',JSON.stringify(data));
+            );
             setLoading(false);
+            localStorage.setItem('UserInfo',JSON.stringify(data));
+            navigate("/fs")
         }catch(error){
             setError(error.response.data.message);
             setLoading(false);
@@ -47,7 +46,7 @@ const Login = ({history}) => {
     <div className='loginContainer'>
         <h1 class="title">
             LOGIN
-        </h1> 
+        </h1>
         <hr></hr>
         {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
         {loading && <Loading/>}
@@ -81,7 +80,7 @@ const Login = ({history}) => {
     </Form>
     <Row className="py-3">
         <Col>
-        New Customer? <Link to="/SignUp" className='link'>SignUp here</Link> </Col>
+        New User? <Link to="/SignUp" className='link'>SignUp here</Link> </Col>
     </Row>
     </div>
   );

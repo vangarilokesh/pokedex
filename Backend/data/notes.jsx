@@ -26,5 +26,4 @@ const notes = [
       category: "Learning",
     },
   ];
-  
   module.exports = notes;

@@ -1,0 +1,23 @@
+.predict{
+    min-height:100vh;
+    min-width:1200p;
+    display: flex;
+    color:rgb(21, 21, 20);
+    align-items: center;
+    padding-left: 20%;
+    font-size: large;
+    font-weight: 900;
+    padding-bottom: 10%;
+}
+@media only screen and (min-width:1200px){
+    .buttonContainer{
+        padding:0 200px;
+        align-items: right;
+    }
+    .title{
+        padding:0 100px;
+    }
+    /* .intro-text{
+        padding:0 100px;
+    } */
+}
